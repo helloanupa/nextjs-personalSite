@@ -1,19 +1,11 @@
 "use client";
 
+import React from 'react';
 import Link from 'next/link';
-import React, { useState } from 'react';
-import { Facebook, Instagram, Linkedin, Youtube, Twitter, Music2, Menu, X } from 'lucide-react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const WorkPage: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const navLinks = [
-    { name: 'home', href: '/' },
-    { name: 'work', href: '#', active: true },
-    { name: 'experience', href: '#' },
-    { name: 'contact', href: '/contact' },
-    { name: 'myArea', href: '#' },
-  ];
 
   const projects = [
     {
@@ -39,37 +31,8 @@ const WorkPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#f8f8f8] text-[#333] font-sans">
-      {/* --- HEADER --- */}
-      <nav className="sticky top-0 z-50 bg-[#f8f8f8]/80 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
-          <Link href="/" className="text-xl font-medium  tracking-tighter cursor-pointer">
-            Anupa Amarasekara
-          </Link>
-          <div className="hidden md:flex space-x-8 text-sm text-gray-500">
-            {navLinks.map((link) => (
-              <Link key={link.name} href={link.href} className={`${link.active ? 'text-blue-500' : 'hover:text-black'} transition-colors`}>
-                {link.name}
-              </Link>
-            ))}
-          </div>
-          <button className="md:hidden p-1 text-gray-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
-          </button>
-        </div>
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-b border-gray-100 absolute w-full left-0 shadow-xl py-4 z-50">
-            <div className="flex flex-col px-8 space-y-4">
-              {navLinks.map((link) => (
-                <Link key={link.name} href={link.href} onClick={() => setIsMenuOpen(false)} className={`text-base ${link.active ? 'text-blue-500 font-medium' : 'text-gray-600'}`}>
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
-      </nav>
+      <Header active="work" />
 
-      {/* --- WORK SECTION --- */}
       <main className="max-w-6xl mx-auto px-6 py-12">
         {/* Intro Text */}
         <div className="max-w-2xl mb-12">
@@ -125,48 +88,7 @@ const WorkPage: React.FC = () => {
         </div>
       </main>
 
-      {/* --- FOOTER --- */}
-      <footer className="max-w-6xl mx-auto px-6 mt-20 pb-12">
-        <div className="py-8 border-t border-gray-200 text-center space-y-6">
-          <p className="text-[10px] text-gray-400 uppercase tracking-[0.2em]">
-            2019-2026 | designed by Anupa Denil Amarasekara
-          </p>
-        <div className="flex justify-center space-x-6 text-gray-400">
-  <a
-    href="https://facebook.com/yourusername"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Facebook"
-    className="hover:text-black transition-colors"
-  >
-    <Facebook size={20} />
-  </a>
-
-  <a
-    href="https://instagram.com/yourusername"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-    className="hover:text-black transition-colors"
-  >
-    <Instagram size={20} />
-  </a>
-
-  <a
-    href="https://linkedin.com/in/yourusername"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-    className="hover:text-black transition-colors"
-  >
-    <Linkedin size={20} />
-  </a>
-
-
-    </div>
-
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

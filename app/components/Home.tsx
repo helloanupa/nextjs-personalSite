@@ -41,7 +41,7 @@ const Portfolio: React.FC = () => {
       {/* GitHub contributions (centered) */}
       <section className="max-w-3xl mx-auto px-6 py-8 text-center">
         <h2 className="text-xl font-semibold mb-4">3500+ GitHub Contributions (2023-2024) 🐙</h2>
-        <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" className="inline-block">
+        <a href="https://github.com/helloanupa" target="_blank" rel="noopener noreferrer" className="inline-block">
           <div className="rounded-lg overflow-hidden border border-gray-100 shadow-sm">
             <img
               src="/images/github-timeline.png"
@@ -50,7 +50,7 @@ const Portfolio: React.FC = () => {
             />
           </div>
         </a>
-        <p className="mt-2 text-sm text-gray-500">View my GitHub profile — replace your-username with your GitHub username.</p>
+        <p className="mt-2 text-sm text-gray-500">Click & Visit My GitHub profile — github.com/helloanupa.</p>
       </section>
 
       <Footer />

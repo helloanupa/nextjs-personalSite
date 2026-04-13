@@ -44,7 +44,7 @@ const Portfolio: React.FC = () => {
         <a href="https://github.com/helloanupa" target="_blank" rel="noopener noreferrer" className="inline-block">
           <div className="rounded-lg overflow-hidden border border-gray-100 shadow-sm">
             <img
-              src="/images/github-timeline.png"
+              src="/images/12.png"
               alt="GitHub contributions (2023-2024)"
               className="w-full h-auto object-contain"
             />

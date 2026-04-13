@@ -109,10 +109,9 @@ const WorkPage: React.FC = () => {
 
       <main className="max-w-6xl mx-auto px-6 py-12">
         <header className="mb-6">
-          <h1 className="text-3xl md:text-4xl font-semibold">Selected Projects</h1>
+          <h1 className="text-3xl md:text-4xl font-semibold">Explore myProjects</h1>
           <p className="mt-2 text-gray-600 max-w-2xl">
-            Curated projects grouped by focus area. Each card is compact with a small thumbnail, brief
-            description, and a tiny GitHub link for quick access to the repository.
+            Documented Work Demonstrating Practical System Design and Real-World Implementation
           </p>
         </header>
 

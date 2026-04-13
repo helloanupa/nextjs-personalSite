@@ -37,7 +37,7 @@ const projectsByCategory: Record<string, Project[]> = {
       title: 'java-cyberTrustSystem',
       description: 'A Java-based security system designed to monitor, detect, and manage cyber threats with secure user authentication and data protection features.',
       tags: ['JAVA-backend', 'CSS', 'JS', 'JDBC', 'SQL'],
-      image: '/images/12.png',
+      image: '/images/p1.png',
       repo: 'https://github.com/helloanupa/java-cyberTrust-system.git',
       updated: '2024',
     },

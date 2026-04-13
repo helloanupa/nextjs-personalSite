@@ -27,7 +27,7 @@ const projectsByCategory: Record<string, Project[]> = {
       title: 'rideReady-carRentalSystem',
       description:
         'A simple and responsive car rental system built with PHP that allows users to browse, book, and manage ride-ready vehicles efficiently.',
-      image: '/images/12.png',
+      image: '/images/p2.png',
       repo: 'https://github.com/helloanupa/php-ride-ready-carRental-system.git',
       tags: ['PHP-backend', 'HTML', 'CSS'],
       updated: '2023',

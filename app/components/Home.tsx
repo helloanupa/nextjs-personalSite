@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const Portfolio: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#f8f8f8] text-[#333] font-sans selection:bg-blue-100">
+    <div className="min-h-screen bg-transparent text-[#333] font-sans selection:bg-blue-100">
       <Header active="home" />
 
       {/* Main Content */}
@@ -39,14 +39,14 @@ const Portfolio: React.FC = () => {
       </main>
 
       {/* GitHub contributions (centered) */}
-      <section className="max-w-3xl mx-auto px-6 py-8 text-center">
+      <section className="max-w-4xl mx-auto px-6 py-8 text-center">
         <h2 className="text-xl font-semibold mb-4">3500+ GitHub Contributions (2023-2024) 🐙</h2>
         <a href="https://github.com/helloanupa" target="_blank" rel="noopener noreferrer" className="inline-block">
           <div className="rounded-lg overflow-hidden border border-gray-100 shadow-sm">
             <img
               src="/images/12.png"
               alt="GitHub contributions (2023-2024)"
-              className="w-full h-auto object-contain"
+              className="w-full max-w-[1200px] mx-auto h-auto object-contain"
             />
           </div>
         </a>

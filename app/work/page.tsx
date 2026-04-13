@@ -47,7 +47,7 @@ const projectsByCategory: Record<string, Project[]> = {
       title: 'react-ceylonGalleria-webApp',
       description: 'A modern React web application showcasing Ceylon Galleria, featuring a clean UI for browsing products, galleries, and an interactive user experience. for Artist Janith Weerasinghe.',
       tags: ['React-frontend', 'MongoDB', 'TailwindCSS', 'NodeJS', 'ExpressJS'],
-      image: '/images/12.png',
+      image: '/images/p3.png',
       repo: 'https://github.com/helloanupa/react-ceylonGalleria-webApp.git',
       updated: '2024',
     },

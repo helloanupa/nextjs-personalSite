@@ -13,7 +13,7 @@ const Header: React.FC<Props> = ({ active }) => {
 
 	const navLinks = [
 		{ name: "home", href: "/" },
-		{ name: "work", href: "/work" },
+		{ name: "researchProjects", href: "/work" },
 		{ name: "experience", href: "#" },
 		{ name: "contact", href: "/contact" },
 		{ name: "myArea", href: "#" },

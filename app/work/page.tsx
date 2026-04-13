@@ -1,91 +1,198 @@
 "use client";
 
-import React from 'react';
-import Link from 'next/link';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const WorkPage: React.FC = () => {
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  tags?: string[];
+  image?: string;
+  repo?: string;
+  updated?: string;
+};
 
-  const projects = [
+const categories = [
+  'Project CodeBase',
+  'Project CyberUniversal',
+  'Project Evilcodes',
+];
+
+const projectsByCategory: Record<string, Project[]> = {
+  'Project CodeBase': [
     {
-      title: "Ceylon Galleria",
-      image: "/images/project1.png",
-      labels: ["React", "Node.js", "MongoDb", "Express", "TailwindCSS"],
-      link: "https://github.com/helloanupa/ceylonGalleria#"
+      id: 'code-1',
+      title: 'rideReady-carRentalSystem',
+      description:
+        'A simple and responsive car rental system built with PHP that allows users to browse, book, and manage ride-ready vehicles efficiently.',
+      image: '/images/12.png',
+      repo: 'https://github.com/helloanupa/php-ride-ready-carRental-system.git',
+      tags: ['PHP-backend', 'HTML', 'CSS'],
+      updated: '2023',
     },
-    
     {
-      title: "Cyber Trust",
-      image: "/images/project2.png",
-      labels: ["Java", "MySQL", "TailwindCSS"],
-      link: "/projects/horizon-atlas"
+      id: 'code-2',
+      title: 'java-cyberTrustSystem',
+      description: 'A Java-based security system designed to monitor, detect, and manage cyber threats with secure user authentication and data protection features.',
+      tags: ['JAVA-backend', 'CSS', 'JS', 'JDBC', 'SQL'],
+      image: '/images/12.png',
+      repo: 'https://github.com/helloanupa/java-cyberTrust-system.git',
+      updated: '2024',
     },
-     {
-      title: "Ride Ready",
-      image: "/images/project2.png",
-      labels: ["HTML", "PHP", "JavaScript", "Css"],
-      link: "/projects/horizon-atlas"
+
+    {
+      id: 'code-3',
+      title: 'react-ceylonGalleria-webApp',
+      description: 'A modern React web application showcasing Ceylon Galleria, featuring a clean UI for browsing products, galleries, and an interactive user experience. for Artist Janith Weerasinghe.',
+      tags: ['React-frontend', 'MongoDB', 'TailwindCSS', 'NodeJS', 'ExpressJS'],
+      image: '/images/12.png',
+      repo: 'https://github.com/helloanupa/react-ceylonGalleria-webApp.git',
+      updated: '2024',
     },
-  ];
+  ],
+
+  'Project CyberUniversal': [
+    {
+      id: 'cyber-1',
+      title: 'Cyber Trust',
+      description: 'Security-focused tooling and demos for threat modeling and secure defaults.',
+      image: '/images/12.png',
+      repo: 'https://github.com/helloanupa/cyber-trust',
+      tags: ['Java', 'Security'],
+      updated: '2024',
+    },
+  ],
+
+  'Project Evilcodes': [
+    {
+      id: 'evil-1',
+      title: 'Evilcodes Labs',
+      description: 'Experimental research projects exploring code transformations and defensive countermeasures.',
+      repo: 'https://github.com/helloanupa/evilcodes-labs',
+      tags: ['Research', 'Tools'],
+      updated: '2024',
+    },
+  ],
+};
+
+function GitHubIcon({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 16 16"
+      fill="currentColor"
+      width="14"
+      height="14"
+      aria-hidden="true"
+    >
+      <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2 .37-2.53-.48-2.69-.92-.09-.23-.48-.92-.82-1.11-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z" />
+    </svg>
+  );
+}
+
+const WorkPage: React.FC = () => {
+  const [active, setActive] = useState<string>(categories[0]);
+
+  const getInitials = (title: string) =>
+    title
+      .split(' ')
+      .map((s) => s[0])
+      .slice(0, 2)
+      .join('')
+      .toUpperCase();
 
   return (
     <div className="min-h-screen bg-[#f8f8f8] text-[#333] font-sans">
       <Header active="work" />
 
       <main className="max-w-6xl mx-auto px-6 py-12">
-        {/* Intro Text */}
-        <div className="max-w-2xl mb-12">
-          <p className="text-gray-500 text-lg leading-snug">
-            A collection of projects showcasing my expertise in web development, design, and digital solutions. 
-            <span className="text-black font-semibold block mt-1">From startups to enterprise applications :</span>
+        <header className="mb-6">
+          <h1 className="text-3xl md:text-4xl font-semibold">Selected Projects</h1>
+          <p className="mt-2 text-gray-600 max-w-2xl">
+            Curated projects grouped by focus area. Each card is compact with a small thumbnail, brief
+            description, and a tiny GitHub link for quick access to the repository.
           </p>
-        </div>
+        </header>
 
-        {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className="group relative aspect-[4/3] rounded-[2.5rem] overflow-hidden cursor-pointer bg-gray-200 transition-transform duration-500 hover:scale-[1.01]"
+        <div className="flex gap-3 items-center mb-8 flex-wrap">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+                active === cat
+                  ? 'bg-blue-600 text-white shadow'
+                  : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
+              }`}
             >
-              {/* Project Image */}
-              <img 
-                src={project.image} 
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
-              
-              {/* Dark Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-
-              {/* Text Content Overlay */}
-              <div className="absolute bottom-0 left-0 p-8 w-full">
-                <h3 className="text-white text-2xl font-medium mb-4">
-                  {project.title}
-                </h3>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.labels.map((label, i) => (
-                    <span 
-                      key={i} 
-                      className="px-4 py-1 rounded-full border border-white/40 text-white text-xs backdrop-blur-sm hover:bg-white hover:text-black transition-colors"
-                    >
-                      {label}
-                    </span>
-                  ))}
-                </div>
-
-                {/* --- IMPROVED LINK BUTTON --- */}
-                <Link 
-                  href={project.link} 
-                  className="inline-block px-4 py-1.5 rounded-full text-sm font-medium border border-white/50 text-white bg-white/10 backdrop-blur-sm hover:bg-blue-500 hover:text-white hover:border-transparent shadow-md transition-all"
-                >
-                  GitHub
-                </Link>
-              </div>
-            </div>
+              {cat}
+            </button>
           ))}
         </div>
+
+        <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {(projectsByCategory[active] || []).map((p) => (
+            <article
+              key={p.id}
+              className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-md transition"
+            >
+              {/* Image area: 360x200 (responsive down to card width) */}
+              {p.image ? (
+                <div className="w-full flex justify-center bg-gray-50">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    width={360}
+                    height={200}
+                    className="w-full h-[200px] max-w-[360px] object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="w-full flex justify-center bg-gray-50">
+                  <div className="w-full h-[200px] max-w-[360px] rounded-t-md bg-gradient-to-br from-indigo-600 to-blue-400 text-white flex items-center justify-center font-semibold text-2xl">
+                    {getInitials(p.title)}
+                  </div>
+                </div>
+              )}
+
+              <div className="p-4 flex flex-col justify-between">
+                <div className="flex items-start gap-4">
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-sm font-semibold text-gray-900 truncate">{p.title}</h3>
+                    <p className="mt-1 text-xs text-gray-500 leading-relaxed">{p.description}</p>
+
+                    {p.tags && (
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {p.tags.map((t) => (
+                          <span key={t} className="text-[11px] text-gray-500 bg-gray-50 px-2 py-1 rounded-md border border-gray-100">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="ml-3 flex items-start">
+                    <a
+                      href={p.repo || '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${p.title} repository`}
+                      className="inline-flex items-center gap-2 px-2 py-1 rounded-md text-xs bg-gray-50 hover:bg-gray-100 border border-gray-100 transition"
+                    >
+                      <GitHubIcon />
+                      <span className="text-[11px] text-gray-700">Repository</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="mt-4 text-right text-[11px] text-gray-400">{p.updated ? `Updated ${p.updated}` : ''}</div>
+              </div>
+            </article>
+          ))}
+        </section>
       </main>
 
       <Footer />

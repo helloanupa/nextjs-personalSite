@@ -14,7 +14,7 @@ const Portfolio: React.FC = () => {
         {/* Left Side - Image */}
         <div className="w-full">
           <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-            <img src="/images/myImage.png" alt="Anupa" className="w-full h-auto object-cover" />
+            <img src="/images/myimage.avif" alt="Anupa" className="w-full h-auto object-cover" />
           </div>
         </div>
 

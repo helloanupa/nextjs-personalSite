@@ -12,10 +12,10 @@ type Project = {
 	image?: string;
 };
 
-const categories = ["Project CodeBase", "Project CyberUniversal", "Project Evilcodes"];
+const categories = ["Codebase Projects", "Non-Codebase Projects"];
 
 const projectsByCategory: Record<string, Project[]> = {
-	"Project CodeBase": [
+	"Codebase Projects": [
 		{
 			id: "codebase-1",
 			title: "CodeBase Studio",
@@ -31,7 +31,7 @@ const projectsByCategory: Record<string, Project[]> = {
 			repo: "https://github.com/helloanupa/tiny-cli",
 		},
 	],
-	"Project CyberUniversal": [
+	"Non-Codebase Projects": [
 		{
 			id: "cyber-1",
 			title: "CyberUniversal Core",
@@ -40,8 +40,6 @@ const projectsByCategory: Record<string, Project[]> = {
 			repo: "https://github.com/helloanupa/cyber-universal",
 			image: "/images/12.png",
 		},
-	],
-	"Project Evilcodes": [
 		{
 			id: "evil-1",
 			title: "Evilcodes Labs",
@@ -161,4 +159,3 @@ const Experience: React.FC = () => {
 };
 
 export default Experience;
-

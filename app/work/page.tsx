@@ -15,13 +15,12 @@ type Project = {
 };
 
 const categories = [
-  'Project CodeBase',
-  'Project CyberUniversal',
-  'Project Evilcodes',
+  'Codebase Projects',
+  'Non-Codebase Projects',
 ];
 
 const projectsByCategory: Record<string, Project[]> = {
-  'Project CodeBase': [
+  'Codebase Projects': [
     {
       id: 'code-1',
       title: 'rideReady-carRentalSystem',
@@ -52,8 +51,7 @@ const projectsByCategory: Record<string, Project[]> = {
       updated: '2024',
     },
   ],
-
-  'Project CyberUniversal': [
+  'Non-Codebase Projects': [
     {
       id: 'cyber-1',
       title: 'Cyber Trust',
@@ -63,9 +61,6 @@ const projectsByCategory: Record<string, Project[]> = {
       tags: ['Java', 'Security'],
       updated: '2024',
     },
-  ],
-
-  'Project Evilcodes': [
     {
       id: 'evil-1',
       title: 'Evilcodes Labs',

@@ -16,23 +16,14 @@ type Project = {
 
 const projectsByCategory: Record<string, Project[]> = {
   'Codebase Projects': [
+
     {
-      id: 'code-1',
-      title: 'rideReady-carRentalSystem',
-      description:
-        'A simple and responsive car rental system built with PHP that allows users to browse, book, and manage ride-ready vehicles efficiently.',
-      image: '/images/p22.png',
-      repo: 'https://github.com/helloanupa/php-ride-ready-carRental-system.git',
-      tags: ['PHP-backend', 'HTML', 'CSS'],
-      updated: '2023',
-    },
-    {
-      id: 'code-2',
-      title: 'java-cyberTrustSystem',
-      description: 'A Java-based security system designed to monitor, detect, and manage cyber threats with secure user authentication and data protection features.',
-      tags: ['JAVA-backend', 'CSS', 'JS', 'JDBC', 'SQL'],
-      image: '/images/p1.png',
-      repo: 'https://github.com/helloanupa/java-cyberTrust-system.git',
+      id: 'code-4',
+      title: 'springBoot-smartCampus-webApp',
+      description: 'A scalable Smart Campus management platform developed using Spring Boot, featuring secure authentication, student management, and streamlined administrative workflows.',
+      tags: ['React-frontend','springBoot-backend', 'MongoDB', 'TailwindCSS', 'SpringBoot'],
+      image: '/images/p3.png',
+      repo: 'https://github.com/helloanupa/react-ceylonGalleria-webApp.git',
       updated: '2024',
     },
 
@@ -45,26 +36,30 @@ const projectsByCategory: Record<string, Project[]> = {
       repo: 'https://github.com/helloanupa/react-ceylonGalleria-webApp.git',
       updated: '2024',
     },
-  ],
-  'Non-Codebase Projects': [
-    {
-      id: 'cyber-1',
-      title: 'Cyber Trust',
-      description: 'Security-focused tooling and demos for threat modeling and secure defaults.',
-      image: '/images/12.png',
-      repo: 'https://github.com/helloanupa/cyber-trust',
-      tags: ['Java', 'Security'],
+
+     {
+      id: 'code-2',
+      title: 'java-cyberTrustSystem',
+      description: 'A Java-based security system designed to monitor, detect, and manage cyber threats with secure user authentication and data protection features.',
+      tags: ['JAVA-backend', 'CSS', 'JS', 'JDBC', 'SQL'],
+      image: '/images/p1.png',
+      repo: 'https://github.com/helloanupa/java-cyberTrust-system.git',
       updated: '2024',
     },
-    {
-      id: 'evil-1',
-      title: 'Evilcodes Labs',
-      description: 'Experimental research projects exploring code transformations and defensive countermeasures.',
-      repo: 'https://github.com/helloanupa/evilcodes-labs',
-      tags: ['Research', 'Tools'],
-      updated: '2024',
+
+   {
+      id: 'code-1',
+      title: 'rideReady-carRentalSystem',
+      description:
+        'A simple and responsive car rental system built with PHP that allows users to browse, book, and manage ride-ready vehicles efficiently.',
+      image: '/images/p22.png',
+      repo: 'https://github.com/helloanupa/php-ride-ready-carRental-system.git',
+      tags: ['PHP-backend', 'HTML', 'CSS'],
+      updated: '2023',
     },
+    
   ],
+  
 };
 
 function GitHubIcon({ className = '' }: { className?: string }) {

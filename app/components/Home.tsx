@@ -1,10 +1,23 @@
 "use client"; // This must be the very first line
 
 import React from "react";
+import Link from "next/link";
 import Header from "./Header";
 import Footer from "./Footer";
+import { ArrowRight, Download } from "lucide-react";
 
 const Portfolio: React.FC = () => {
+  const handleCVDownload = () => {
+    // Create a link to download CV - adjust the path based on where you store your CV
+    const cvUrl = "/cv.pdf"; // Place your CV.pdf in the public folder
+    const link = document.createElement("a");
+    link.href = cvUrl;
+    link.download = "Anupa-CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="min-h-screen bg-transparent text-[#333] font-sans selection:bg-blue-100">
       <Header active="home" />
@@ -35,6 +48,25 @@ const Portfolio: React.FC = () => {
           <p className="italic text-gray-500 pt-4">
             I am always open to meaningful collaborations, and projects that challenge me to grow while contributing value to people, products, and organizations.
           </p>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 pt-8">
+            <Link
+              href="/work"
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transition-colors duration-200 shadow-md hover:shadow-lg"
+            >
+              Explore My Projects
+              <ArrowRight size={18} strokeWidth={2} />
+            </Link>
+
+            <button
+              onClick={handleCVDownload}
+              className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition-colors duration-200 shadow-md hover:shadow-lg"
+            >
+              Download CV
+              <Download size={18} strokeWidth={2} />
+            </button>
+          </div>
         </div>
       </main>
 

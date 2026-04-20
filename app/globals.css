@@ -15,3 +15,39 @@ body {
 
 /* Optional: remove system dark mode override completely */
 /* (This was your main issue) */
+
+@media (any-hover: hover) and (any-pointer: fine) {
+  .custom-cursor-enabled,
+  .custom-cursor-enabled * {
+    cursor: none !important;
+  }
+
+  .mini-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 19px;
+    height: 19px;
+    border: 1.5px solid #151516;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 9999px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(-100px, -100px, 0);
+    transition: opacity 0.2s ease, width 0.15s ease, height 0.15s ease, background-color 0.15s ease;
+    z-index: 9999;
+    will-change: transform;
+  }
+
+  .mini-cursor.is-down {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(30, 64, 175, 0.25);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .mini-cursor {
+    display: none;
+  }
+}

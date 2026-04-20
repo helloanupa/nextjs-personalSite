@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -13,11 +13,6 @@ type Project = {
   repo?: string;
   updated?: string;
 };
-
-const categories = [
-  'Codebase Projects',
-  'Non-Codebase Projects',
-];
 
 const projectsByCategory: Record<string, Project[]> = {
   'Codebase Projects': [
@@ -88,7 +83,7 @@ function GitHubIcon({ className = '' }: { className?: string }) {
 }
 
 const WorkPage: React.FC = () => {
-  const [active, setActive] = useState<string>(categories[0]);
+  const allProjects = Object.values(projectsByCategory).flat();
 
   const getInitials = (title: string) =>
     title
@@ -110,24 +105,8 @@ const WorkPage: React.FC = () => {
           </p>
         </header>
 
-        <div className="flex gap-3 items-center mb-8 flex-wrap">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition ${
-                active === cat
-                  ? 'bg-blue-600 text-white shadow'
-                  : 'bg-white border border-gray-200 text-gray-700 hover:bg-gray-50'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {(projectsByCategory[active] || []).map((p) => (
+          {allProjects.map((p) => (
             <article
               key={p.id}
               className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-md transition"

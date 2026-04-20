@@ -15,15 +15,32 @@ export async function POST(req: Request) {
 
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
+      to: "anupadenil@gmail.com",
       replyTo: email,
       subject: subject || "New Contact Message",
       html: `
-        <h2>New Contact Message</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
+        <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9;">
+          <div style="max-width: 600px; margin: 0 auto; background-color: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h2 style="color: #333; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">New Contact Message</h2>
+            
+            <div style="margin-top: 20px; line-height: 1.8;">
+              <p style="margin: 10px 0;"><strong style="color: #333;">Name:</strong> <span style="color: #666;">${name}</span></p>
+              <p style="margin: 10px 0;"><strong style="color: #333;">Email:</strong> <a href="mailto:${email}" style="color: #3b82f6; text-decoration: none;">${email}</a></p>
+              <p style="margin: 10px 0;"><strong style="color: #333;">Subject:</strong> <span style="color: #666;">${subject}</span></p>
+            </div>
+
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+              <p style="color: #333; font-weight: bold; margin-bottom: 10px;">Message:</p>
+              <div style="background-color: #f3f4f6; padding: 15px; border-radius: 5px; color: #666; white-space: pre-wrap; word-wrap: break-word;">
+                ${message}
+              </div>
+            </div>
+
+            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #999;">
+              <p>This message was sent from your portfolio contact form.</p>
+            </div>
+          </div>
+        </div>
       `,
     });
 

@@ -12,11 +12,11 @@ const Header: React.FC<Props> = ({ active }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const navLinks = [
-		{ name: "home", href: "/" },
-		{ name: "researchProjects", href: "/work" },
-		{ name: "experience", href: "#" },
-		{ name: "contact", href: "/contact" },
-		{ name: "myArea", href: "#" },
+		{ id: "home", label: "home", href: "/" },
+		{ id: "work", label: "researchProjects", href: "/work" },
+		{ id: "experience", label: "experience", href: "#" },
+		{ id: "contact", label: "contact", href: "/contact" },
+		{ id: "myArea", label: "myArea", href: "#" },
 	];
 
 	return (
@@ -29,11 +29,11 @@ const Header: React.FC<Props> = ({ active }) => {
 				<div className="hidden md:flex space-x-8 text-sm text-gray-500">
 					{navLinks.map((link) => (
 						<Link
-							key={link.name}
+							key={link.id}
 							href={link.href}
-							className={`${(active === link.name) ? "text-blue-500" : "hover:text-black"} transition-colors`}
+							className={`${(active === link.id) ? "text-blue-500" : "hover:text-black"} transition-colors`}
 						>
-							{link.name}
+							{link.label}
 						</Link>
 					))}
 				</div>
@@ -51,12 +51,12 @@ const Header: React.FC<Props> = ({ active }) => {
 					<div className="flex flex-col px-8 space-y-4">
 						{navLinks.map((link) => (
 							<Link
-								key={link.name}
+								key={link.id}
 								href={link.href}
 								onClick={() => setIsMenuOpen(false)}
-								className={`text-base ${(active === link.name) ? 'text-blue-500 font-medium' : 'text-gray-600 hover:text-black'}`}
+								className={`text-base ${(active === link.id) ? 'text-blue-500 font-medium' : 'text-gray-600 hover:text-black'}`}
 							>
-								{link.name}
+								{link.label}
 							</Link>
 						))}
 					</div>

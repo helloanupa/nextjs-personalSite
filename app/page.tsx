@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   title: "Anupa Denil | Software Engineer & Web Developer",
   description:
     "Anupa Denil - Software Engineer, Web Developer, and Programmer specializing in JavaScript, C++, and modern web apps.",
+  openGraph: {
+    title: "Anupa Denil Portfolio",
+    description: "Software Engineer & Web Developer Portfolio",
+    url: "https://anupadenil.online",
+    type: "website",
+  },
   keywords: [
     "Anupa Denil Amarasekara",
     "Anupa Denil",
